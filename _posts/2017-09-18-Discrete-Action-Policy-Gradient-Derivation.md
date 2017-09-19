@@ -33,15 +33,15 @@ $$
 \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}}
 &= \begin{cases}
         \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{in} s_{n}} & a = i \\
-        0 & i \neq a
+        0 & a \neq i
     \end{cases} \\
 &= \begin{cases}
         \sum_{n} \frac{\partial}{\partial \Theta_{ij}} \Theta_{in} s_{n} & a = i \\
-        0 & i \neq a
+        0 & a \neq i
     \end{cases} \\
 &= \begin{cases}
         s_{j} & i = a \\
-        0 & i \neq a
+        0 & a \neq i
     \end{cases}
 \end{align}
 $$
