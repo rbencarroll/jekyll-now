@@ -27,11 +27,20 @@ $$
 \end{align}
 $$
 
+Expanding the cases for the first term, we have
 $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}} &=
 \begin{cases}
-\frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{ij} s_{j}} & i = a, j = n \\
+\frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{in} s_{n}} & i = a, j = n \\
+0 & i \neq a
+\end{cases} \\
+&= \begin{cases}
+\frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j} & i = a, j = n \\
+0 & i \neq a
+\end{cases} \\
+&= \begin{cases}
+s_{j} & i = a, j = n \\
 0 & i \neq a
 \end{cases}
 \end{align}
