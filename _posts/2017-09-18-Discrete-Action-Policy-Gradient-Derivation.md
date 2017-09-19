@@ -26,13 +26,13 @@ $$
 &= \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}} - \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_k s)}
 \end{align}
 $$
+
+$$
+\begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}} &=
 \begin{cases}
 \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{ij} s_{j}} & i = a \and j = n \\
 0 & i \neq a
 \end{cases}
-$$
-\begin{align}
-
 \end{align}
 $$
