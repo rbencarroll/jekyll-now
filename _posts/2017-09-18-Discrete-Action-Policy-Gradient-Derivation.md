@@ -72,6 +72,7 @@ $$
         s_{j} & i=k, j=n \\
         0 & otherwise
     \end{cases} \\
-&= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \exp(\Theta_{i} s) s_{j}
+&= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \left(\{\exp(\Theta_{i} s) s_{j}\}_{i=k,j=n} + \sum_{i \neq k}{\sum_{j \neq n}{0}}\right)
+&= \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j}
 \end{align}
 $$
