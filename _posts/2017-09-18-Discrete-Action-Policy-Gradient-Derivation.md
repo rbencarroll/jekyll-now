@@ -72,7 +72,42 @@ $$
         s_{j} & i=k, j=n \\
         0 & otherwise
     \end{cases} \\
-&= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \left(\{\exp(\Theta_{i} s) s_{j}\}_{i=k,j=n} + \sum_{i \neq k}{\sum_{j \neq n}{0}}\right)
+&= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \left(\{\exp(\Theta_{i} s) s_{j}\}_{i=k,j=n} + \sum_{i \neq k}{\sum_{j \neq n}{0}}\right) \\
 &= \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j}
+\end{align}
+$$
+
+Combining the results for the first and second parts of the equation.
+$$
+\begin{align}
+\frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_{k} s} &=
+\begin{cases}
+s_{j} & i = a \\
+0 & i \neq a
+\end{cases} + \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j}
+\end{align}
+&= \begin{cases}
+s_{j} (1-\pi(a_i | s)) & i = a \\
+s_{j} (-\pi(a_i | s)) & i \neq a
+\end{cases}
+$$
+
+Re-stating the above with matrix notation, let $$e_i$$ represent a one-hot
+column vector that is non-zero at index $$i$$, and $$\pi(\cdot|s) represent
+the column vector of the probability of each action conditioned on the state.
+
+$$
+\begin{align}
+\nabla_\Theta \log \pi(a|s) &= (e_a - \pi(\cdot|s))s^T
+\end{align}
+$$
+
+We can see that the matrix notation matches the partial derivative notation
+with the following example where a = 1:
+
+$$
+\begin{align}
+\nabla_\Theta \log \pi(a|s) &= (e_a - \pi(\cdot|s))s^T
+&= \left(\left[\begin{array} 0 \\ 1 \\ 0 \end{array}\right] - \left[\begin{array} \pi(a_0|s) \\ \pi(a_1|s) \\ \pi(a_2|s) \end{array}\right]\right) \begin{array} s_0 & s_1 & s2 \end{array}
 \end{align}
 $$
