@@ -1,6 +1,6 @@
 I recently had occasion to derive the discrete action policy gradient, and
-thought that I would share my solution as a reference for others who were
-completing the exercise.
+thought that I would share my solution (in excruciating detail) as a reference
+for others who are completing the exercise.
 
 This will be the derivation for the discrete action space policy where the
 conditional action probability, $$\pi(a|s)$$, is determined by the softmax of a
@@ -84,12 +84,11 @@ $$
 Combining the results for the first and second parts of the equation.
 $$
 \begin{align}
-\frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_{k} s} &=
-    \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j} + 
-        \begin{cases}
-            s_{j} & i = a \\
-            0 & i \neq a
-        \end{cases} \\
+\frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s) &=
+    \begin{cases}
+        s_{j} - \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j} & i = a \\
+        0 - \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j} & i \neq a \\
+    \end{cases}
 &= \begin{cases}
         s_{j} (1-\pi(a_i | s)) & i = a \\
         s_{j} (-\pi(a_i | s)) & i \neq a
