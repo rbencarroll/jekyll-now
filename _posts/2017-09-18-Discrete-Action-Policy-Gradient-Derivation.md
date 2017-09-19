@@ -40,7 +40,7 @@ $$
         0 & i \neq a
     \end{cases} \\
 &= \begin{cases}
-        \frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j} + \{0\}_{j \neq n} & i = a \\
+        \frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j} + \sum_{j \neq n}{0} & i = a \\
         0 & i \neq a
     \end{cases} \\
 &= \begin{cases}
@@ -71,7 +71,11 @@ $$
 \end{cases} \\
 &= \begin{cases}
     \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{\frac{\partial}{\partial \Theta_{ij}} \Theta_{in} s_{n}}} & i = k \\
-    \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{k}{\frac{\partial}{\partial \Theta_{ij}} \Theta_{kn} s_{n}}} & i \neq k
+    \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{\frac{\partial}{\partial \Theta_{ij}} \Theta_{kn} s_{n}}} & i \neq k
+\end{cases} \\
+&= \begin{cases}
+    \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \left(\{\frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j}\}_{n=j} + \sum_{n \neq j}_{0}\right)} & i = k \\
+    \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{0}} & i \neq k
 \end{cases}
 \end{align}
 $$
