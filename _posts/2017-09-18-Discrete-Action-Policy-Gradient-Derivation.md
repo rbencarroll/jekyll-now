@@ -40,7 +40,7 @@ $$
         0 & i \neq a
     \end{cases} \\
 &= \begin{cases}
-        \frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j} + \left{0\right}_{j \neq n} & i = a \\
+        \frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j} + \{0\}_{j \neq n} & i = a \\
         0 & i \neq a
     \end{cases} \\
 &= \begin{cases}
