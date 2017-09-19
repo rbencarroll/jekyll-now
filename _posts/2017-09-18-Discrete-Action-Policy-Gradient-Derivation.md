@@ -15,6 +15,7 @@ the gradient matrix:
 $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s) 
-&= \log\left(\frac{\exp(\Theta_a s)}{\sum_{k}{\exp(\Theta_k s)}}\right)
+&= \frac{\partial}{\partial \Theta_{ij}} \log\left(\frac{\exp(\Theta_a s)}{\sum_{k}{\exp(\Theta_k s)}}\right)
+&= \frac{\partial}{\partial \Theta_{ij}} \left(\log(\exp(\Theta_a s)) - \log(\exp(\sum_{k}{\exp(\Theta_k s)}))\right)
 \end{align}
 $$
