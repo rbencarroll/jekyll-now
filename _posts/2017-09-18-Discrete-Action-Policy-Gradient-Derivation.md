@@ -65,17 +65,21 @@ $$
 &= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(g_k) \frac{\partial}{\partial \Theta_{ij}} g_k} \\
 &= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \frac{\partial}{\partial \Theta_{ij}} \Theta_{k} s} \\
 &= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \frac{\partial}{\partial \Theta_{ij}} \Theta_{k} s} \\
+\end{align}
+$$
+$$
+\begin{align}
 &= \begin{cases}
-    \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{in} s_{n}}} & i = k \\
-    \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{kn} s_{n}}} & i \neq k
-\end{cases} \\
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{in} s_{n}}} & i = k \\
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{kn} s_{n}}} & i \neq k
+    \end{cases} \\
 &= \begin{cases}
-    \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{\frac{\partial}{\partial \Theta_{ij}} \Theta_{in} s_{n}}} & i = k \\
-    \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{\frac{\partial}{\partial \Theta_{ij}} \Theta_{kn} s_{n}}} & i \neq k
-\end{cases} \\
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{\frac{\partial}{\partial \Theta_{ij}} \Theta_{in} s_{n}}} & i = k \\
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{\frac{\partial}{\partial \Theta_{ij}} \Theta_{kn} s_{n}}} & i \neq k
+    \end{cases} \\
 &= \begin{cases}
-    \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \left(\{\frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j}\}_{n=j} + \sum_{n \neq j}_{0}\right)} & i = k \\
-    \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{0}} & i \neq k
-\end{cases}
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \left(\{\frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j}\}_{n=j} + \sum_{n \neq j}_{0}\right)} & i = k \\
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{0}} & i \neq k
+    \end{cases}
 \end{align}
 $$
