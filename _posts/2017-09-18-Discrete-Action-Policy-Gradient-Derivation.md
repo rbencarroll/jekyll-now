@@ -12,6 +12,10 @@ $$
 To find $$\nabla_{\Theta} \log \pi(a|s)$$, we can split out each component of
 the gradient matrix:
 
+I will use $\Theta_a$ to indicate the $a^{th}$ row of $\Theta$, and
+$\Theta_{ij}$ to indicate the element in the $i^{th}$ row and $j^{th}$
+column of $\Theta$.
+
 $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s) 
