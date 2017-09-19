@@ -36,7 +36,7 @@ $$
         0 & i \neq a
     \end{cases} \\
 &= \begin{cases}
-        \sum_{n} \frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j} & i = a, j = n \\
+        \sum_{n} \frac{\partial}{\partial \Theta_{ij}} \Theta_{in} s_{n} & i = a, j = n \\
         0 & i \neq a
     \end{cases} \\
 &= \begin{cases}
