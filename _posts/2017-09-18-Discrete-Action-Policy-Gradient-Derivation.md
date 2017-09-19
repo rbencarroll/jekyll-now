@@ -62,14 +62,16 @@ $$
 Continuing with the second term:
 
 Let
+
 $$
 \begin{align}
-f &= \sum_{k}{\exp(\Theta_k s)}
+f &= \sum_{k}{\exp(\Theta_k s)} \\
 g_k &= \Theta_{k} s
 \end{align}
 $$
 
 Then,
+
 $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_{k} s)} &= \frac{\partial}{\partial \Theta_{ij}} \log(f) \\
