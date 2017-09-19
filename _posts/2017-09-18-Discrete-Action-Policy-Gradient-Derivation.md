@@ -31,7 +31,7 @@ $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}} &=
 \begin{cases}
-\frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{ij} s_{j}} & i = a \and j = n \\
+\frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{ij} s_{j}} & i = a, j = n \\
 0 & i \neq a
 \end{cases}
 \end{align}
