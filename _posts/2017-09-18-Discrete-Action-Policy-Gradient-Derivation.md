@@ -74,17 +74,14 @@ $$
         \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{\frac{\partial}{\partial \Theta_{ij}} \Theta_{kn} s_{n}}} & i \neq k
     \end{cases} \\
 &= \begin{cases}
-        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \left(\{\frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j}\}_{n=j} + \sum_{n \neq j}{\frac{\partial}{\partial \Theta_ij} \Theta_{in} s_{n}}\right)} & i = k \\
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \left(\frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j}\right)} & i = k, j = n \\
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \left(\sum_{n \neq j}{\frac{\partial}{\partial \Theta_ij} \Theta_{in} s_{n}}\right)} & i = k,j \neq n \\
         \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{0}} & i \neq k
     \end{cases} \\
-\end{align}
-$$
-
-$$
-\begin{align}
 &= \begin{cases}
-        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \left(\{ \frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j} \}_{n=j}\right)} & i = k \\
-        \sum_{k}{\left(\sum_{n \neq j}_{0} \right)} & i = k \\
-    \end{cases}
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) s_{j}} & i = k, j = n \\
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \left(\sum_{n \neq j}{0}\right)} & i = k,j \neq n \\
+        \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{0}} & i \neq k
+    \end{cases} \\
 \end{align}
 $$
