@@ -1,10 +1,19 @@
-I recently had occasion to derive the discrete action policy gradient, and
-thought that I would share my solution (in excruciating detail) as a reference
-for others who are completing the exercise.
+I recently had occasion to derive the policy gradient for discrete actions with
+a softmax policy, and thought that I would share my solution (in excruciating
+detail) as a reference for others who are completing the exercise.
 
-This will be the derivation for the discrete action space policy where the
-conditional action probability, $$\pi(a|s)$$, is determined by the softmax of a
-logit function.
+For an explanation of reinforcement learning with policy gradient methods, see
+David Silver's lecture slides here:
+http://www0.cs.ucl.ac.uk/staff/D.Silver/web/Teaching_files/pg.pdf
+
+This will be the derivation for the policy gradient of a discrete action space
+policy where the conditional action probability, $$\pi(a|s)$$, is determined by
+the softmax of a logit function.
+
+I will use $$\Theta_a$$ to indicate the $$a^{th}$$ row of $$\Theta$$, and
+$$\Theta_{ij}$$ to indicate the element in the $$i^{th}$$ row and $$j^{th}$$
+column of $$\Theta$$. I will also assume that the state vector, $$s$$, is a
+column vector.
 
 $$
 \begin{align}
@@ -13,13 +22,9 @@ $$
 \end{align}
 $$
 
+# Partial Derivative Method
 To find $$\nabla_{\Theta} \log \pi(a|s)$$, we can split out each component of
 the gradient matrix:
-
-I will use $$\Theta_a$$ to indicate the $$a^{th}$$ row of $$\Theta$$, and
-$$\Theta_{ij}$$ to indicate the element in the $$i^{th}$$ row and $$j^{th}$$
-column of $$\Theta$$. I will also assume that the state vector, $$s$$, is a
-column vector.
 
 $$
 \begin{align}
@@ -81,14 +86,16 @@ $$
 \end{align}
 $$
 
-Combining the results for the first and second parts of the equation.
+Combining the results for the first and second parts of the equation, we have
+the partial derivative solution.
+
 $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s) &=
     \begin{cases}
         s_{j} - \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j} & i = a \\
         0 - \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j} & i \neq a \\
-    \end{cases}
+    \end{cases} \\
 &= \begin{cases}
         s_{j} (1-\pi(a_i | s)) & i = a \\
         s_{j} (-\pi(a_i | s)) & i \neq a
@@ -96,9 +103,11 @@ $$
 \end{align}
 $$
 
-Re-stating the above with matrix notation, let $$e_i$$ represent a one-hot
-column vector that is non-zero at index $$i$$, and $$\pi(\cdot|s) represent
-the column vector of the probability of each action conditioned on the state.
+# Converting to Matrix Notation
+Now that we have the partial derivative solution, we can convert it to the more
+compact matrix notation. Let $$e_i$$ represent a one-hot column vector that is
+non-zero at index $$i$$, and $$\pi(\cdot|s) represent the column vector of the
+probability of each action conditioned on the state.
 
 $$
 \begin{align}
@@ -114,7 +123,7 @@ $$
 \nabla_\Theta \log \pi(a|s) &= (e_a - \pi(\cdot|s))s^T \\
 &= \left(\left[\begin{array}{c} 0 \\ 1 \\ 0 \end{array}\right] -
 \left[\begin{array}{c} \pi(a_0|s) \\ \pi(a_1|s) \\ \pi(a_2|s)
-\end{array}\right]\right) \left[\begin{array}{ccc} s_0 & s_1 & s2
+\end{array}\right]\right) \left[\begin{array}{ccc} s_0 & s_1 & s_2
 \end{array}\right] \\
 &= \left[
 \begin{array}{ccc}
@@ -125,3 +134,6 @@ $$
 \right]
 \end{align}
 $$
+
+We can easily see that this is the same as the partial derivative solution
+above with row $$i$$ and column $$j$$.
