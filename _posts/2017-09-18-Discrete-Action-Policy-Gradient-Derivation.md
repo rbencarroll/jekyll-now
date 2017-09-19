@@ -85,15 +85,16 @@ Combining the results for the first and second parts of the equation.
 $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_{k} s} &=
-\begin{cases}
-s_{j} & i = a \\
-0 & i \neq a
-\end{cases} + \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j}
-\end{align}
+    \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j} + 
+        \begin{cases}
+            s_{j} & i = a \\
+            0 & i \neq a
+        \end{cases} \\
 &= \begin{cases}
-s_{j} (1-\pi(a_i | s)) & i = a \\
-s_{j} (-\pi(a_i | s)) & i \neq a
-\end{cases}
+        s_{j} (1-\pi(a_i | s)) & i = a \\
+        s_{j} (-\pi(a_i | s)) & i \neq a
+    \end{cases}
+\end{align}
 $$
 
 Re-stating the above with matrix notation, let $$e_i$$ represent a one-hot
@@ -112,11 +113,12 @@ with the following example where a = 1:
 $$
 \begin{align}
 \nabla_\Theta \log \pi(a|s) &= (e_a - \pi(\cdot|s))s^T \\
-&= \left(\left[\begin{array}
-0 \\ 1 \\ 0 \end{array}\right] - \left[\begin{array}
-\pi(a_0|s) \\ \pi(a_1|s) \\ \pi(a_2|s) \end{array}\right]\right) \left[\begin{array} s_0 & s_1 & s2 \end{array}\right]
+&= \left(\left[\begin{array}{c} 0 \\ 1 \\ 0 \end{array}\right] -
+\left[\begin{array}{c} \pi(a_0|s) \\ \pi(a_1|s) \\ \pi(a_2|s)
+\end{array}\right]\right) \left[\begin{array}{ccc} s_0 & s_1 & s2
+\end{array}\right] \\
 &= \left[
-\begin{array}
+\begin{array}{ccc}
 -\pi(a_0|s)s_0 & -pi(a_0|s)s_1 & -pi(a_0|s)s_2 \\
 (1-\pi(a_1|s))s_0 & (1-pi(a_1|s))s_1 & (1-pi(a_1|s))s_2 \\
 -\pi(a_2|s)s_0 & -pi(a_2|s)s_1 & -pi(a_2|s)s_2
