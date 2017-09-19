@@ -3,7 +3,8 @@ a softmax policy, and thought that I would share my solution (in excruciating
 detail) as a reference for others who are completing the exercise.
 
 For an explanation of reinforcement learning with policy gradient methods, see
-Lecture 7 of David Silver's Reinforcement Learning course. [slides](http://www0.cs.ucl.ac.uk/staff/D.Silver/web/Teaching_files/pg.pdf).
+[Lecture 7](http://www0.cs.ucl.ac.uk/staff/D.Silver/web/Teaching_files/pg.pdf)
+of David Silver's Reinforcement Learning course.
 
 This will be the derivation for the policy gradient of a discrete action space
 policy where the conditional action probability, $$\pi(a|s)$$, is determined by
@@ -60,8 +61,15 @@ $$
 
 Continuing with the second term:
 
-Let $$f = \sum_{k}{\exp(\Theta_k s)}$$ and $$g_k = \Theta_{k} s$$.
+Let
+$$
+\begin{align}
+f &= \sum_{k}{\exp(\Theta_k s)}
+g_k &= \Theta_{k} s
+\end{align}
+$$
 
+Then,
 $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_{k} s)} &= \frac{\partial}{\partial \Theta_{ij}} \log(f) \\
@@ -90,15 +98,15 @@ the partial derivative solution.
 $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s)
-&= \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}} - \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_k s)}
+&= \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}} - \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_k s)} \\
 &=
     \begin{cases}
         s_{j} - \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j} & i = a \\
         0 - \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j} & i \neq a \\
     \end{cases} \\
 &= \begin{cases}
-        s_{j} (1-\pi(a_i | s)) & i = a \\
-        s_{j} (-\pi(a_i | s)) & i \neq a
+        (1-\pi(a_i | s))s_{j} & i = a \\
+        (-\pi(a_i | s))s_{j} & i \neq a
     \end{cases}
 \end{align}
 $$
