@@ -3,8 +3,7 @@ a softmax policy, and thought that I would share my solution (in excruciating
 detail) as a reference for others who are completing the exercise.
 
 For an explanation of reinforcement learning with policy gradient methods, see
-David Silver's lecture slides here:
-http://www0.cs.ucl.ac.uk/staff/D.Silver/web/Teaching_files/pg.pdf
+Lecture 7 of David Silver's Reinforcement Learning course. [slides](http://www0.cs.ucl.ac.uk/staff/D.Silver/web/Teaching_files/pg.pdf).
 
 This will be the derivation for the policy gradient of a discrete action space
 policy where the conditional action probability, $$\pi(a|s)$$, is determined by
@@ -22,9 +21,9 @@ $$
 \end{align}
 $$
 
-# Partial Derivative Method
-To find $$\nabla_{\Theta} \log \pi(a|s)$$, we can split out each component of
-the gradient matrix:
+# Partial Derivatives
+To find $$\nabla_{\Theta} \log \pi(a|s)$$, we can split out each partial
+derivative in the gradient matrix:
 
 $$
 \begin{align}
@@ -73,7 +72,6 @@ $$
 &= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\frac{\partial}{\partial g_k} \exp(g_k) \frac{\partial}{\partial \Theta_{ij}} g_k} \\
 &= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(g_k) \frac{\partial}{\partial \Theta_{ij}} g_k} \\
 &= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \frac{\partial}{\partial \Theta_{ij}} \Theta_{k} s} \\
-&= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \frac{\partial}{\partial \Theta_{ij}} \Theta_{k} s} \\
 &= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{kn} s_{n}}} \\
 &= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \sum_{n}{\frac{\partial}{\partial \Theta_{ij}} \Theta_{kn} s_{n}}} \\
 \frac{\partial}{\partial \Theta_{ij}} \Theta_{kn} s_{n} &= 
@@ -91,7 +89,9 @@ the partial derivative solution.
 
 $$
 \begin{align}
-\frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s) &=
+\frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s)
+&= \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}} - \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_k s)}
+&=
     \begin{cases}
         s_{j} - \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j} & i = a \\
         0 - \frac{\exp(\Theta_{i} s)}{\sum_{k}{\exp(\Theta_k s)}} s_{j} & i \neq a \\
@@ -137,3 +137,14 @@ $$
 
 We can easily see that this is the same as the partial derivative solution
 above with row $$i$$ and column $$j$$.
+
+For rows where $$i=a=1$$, as defined above for our example, we have
+$$
+\frac{\partial}{\partial \Theta_{1j}} = (1 - \pi(a_1|s))s_{j}
+$$
+
+For rows where $$i \neq a = 1$$, we have
+$$
+\frac{\partial}{\partial \Theta_{ij}} = (-\pi(a_i|s))s_{j}
+$$
+
