@@ -4,7 +4,7 @@ completing the exercise.
 
 $$
 \begin{align}
-\pi(a|s) &= softmax(\Theta s)_a 
+\pi(a|s) &= softmax(\Theta s)_a \\
 &= \frac{exp(\Theta_a^T s)}{\sum_{a}{exp(\Theta_a^T s)}}
 \end{align}
 $$
