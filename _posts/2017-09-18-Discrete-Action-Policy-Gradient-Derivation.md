@@ -56,7 +56,8 @@ Let $$f = \sum_{k}{\exp(\Theta_k s)}$$
 
 $$
 \begin{align}
-\frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_{k} s)} &= \frac{\partial}{\partial \Theta_{ij}} \log(f)
+\frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_{k} s)} &= \frac{\partial}{\partial \Theta_{ij}} \log(f) \\
+&= \frac{\partial}{\partial f} \log(f) \frac{\partial}{\Theta_{ij}} f \\
+&= \frac{1}{f} \frac{\partial}{\partial \Theta_{ij}} \sum_{k}{\exp(\Theta_{k} s}
 \end{align}
 $$
-
