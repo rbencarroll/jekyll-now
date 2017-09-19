@@ -21,7 +21,7 @@ $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s) 
 &= \frac{\partial}{\partial \Theta_{ij}} \log\left(\frac{\exp(\Theta_a s)}{\sum_{k}{\exp(\Theta_k s)}}\right) \\
-&= \frac{\partial}{\partial \Theta_{ij}} \left(\log(\exp(\Theta_a s)) - \log(\exp(\sum_{k}{\exp(\Theta_k s)}))\right) \\
+&= \frac{\partial}{\partial \Theta_{ij}} \left(\log(\exp(\Theta_a s)) - \log(\sum_{k}{\exp(\Theta_k s)})\right) \\
 &= \frac{\partial}{\partial \Theta_{ij}} \Theta_a s - \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_k s)} \\
 &= \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}} - \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_k s)}
 \end{align}
@@ -49,3 +49,14 @@ $$
     \end{cases}
 \end{align}
 $$
+
+Continuing with the second term:
+
+Let $$f = \sum_{k}{\exp(\Theta_k s)}$$
+
+$$
+\begin{align}
+\frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_{k} s)} &= \frac{\partial}{\partial \Theta_{ij}} \log(f)
+\end{align}
+$$
+
