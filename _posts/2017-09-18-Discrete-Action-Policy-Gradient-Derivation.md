@@ -14,13 +14,25 @@ the gradient matrix:
 
 I will use $$\Theta_a$$ to indicate the $$a^{th}$$ row of $$\Theta$$, and
 $$\Theta_{ij}$$ to indicate the element in the $$i^{th}$$ row and $$j^{th}$$
-column of $$\Theta$$.
+column of $$\Theta$$. I will also assume that the state vector, $$s$$, is a
+column vector.
 
 $$
 \begin{align}
 \frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s) 
 &= \frac{\partial}{\partial \Theta_{ij}} \log\left(\frac{\exp(\Theta_a s)}{\sum_{k}{\exp(\Theta_k s)}}\right) \\
 &= \frac{\partial}{\partial \Theta_{ij}} \left(\log(\exp(\Theta_a s)) - \log(\exp(\sum_{k}{\exp(\Theta_k s)}))\right) \\
-&= \frac{\partial}{\partial \Theta_{ij}} \Theta_a s - \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_k s)}
+&= \frac{\partial}{\partial \Theta_{ij}} \Theta_a s - \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_k s)} \\
+&= \frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}} - \frac{\partial}{\partial \Theta_{ij}} \log \sum_{k}{\exp(\Theta_k s)}
+\end{align}
+$$
+\frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{an}s_{n}} &=
+\begin{cases}
+\frac{\partial}{\partial \Theta_{ij}} \sum_{n}{\Theta_{ij} s_{j}} & i = a \and j = n \\
+0 & i \neq a
+\end{cases}
+$$
+\begin{align}
+
 \end{align}
 $$
