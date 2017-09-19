@@ -2,6 +2,10 @@ I recently had occasion to derive the discrete action policy gradient, and
 thought that I would share my solution as a reference for others who were
 completing the exercise.
 
+This will be the derivation for the discrete action space policy where the
+conditional action probability, $$\pi(a|s)$$, is determined by the softmax of a
+logit function.
+
 $$
 \begin{align}
 \pi(a|s) &= softmax(\Theta s)_a \\
@@ -107,7 +111,16 @@ with the following example where a = 1:
 
 $$
 \begin{align}
-\nabla_\Theta \log \pi(a|s) &= (e_a - \pi(\cdot|s))s^T
-&= \left(\left[\begin{array} 0 \\ 1 \\ 0 \end{array}\right] - \left[\begin{array} \pi(a_0|s) \\ \pi(a_1|s) \\ \pi(a_2|s) \end{array}\right]\right) \begin{array} s_0 & s_1 & s2 \end{array}
+\nabla_\Theta \log \pi(a|s) &= (e_a - \pi(\cdot|s))s^T \\
+&= \left(\left[\begin{array}
+0 \\ 1 \\ 0 \end{array}\right] - \left[\begin{array}
+\pi(a_0|s) \\ \pi(a_1|s) \\ \pi(a_2|s) \end{array}\right]\right) \left[\begin{array} s_0 & s_1 & s2 \end{array}\right]
+&= \left[
+\begin{array}
+-\pi(a_0|s)s_0 & -pi(a_0|s)s_1 & -pi(a_0|s)s_2 \\
+(1-\pi(a_1|s))s_0 & (1-pi(a_1|s))s_1 & (1-pi(a_1|s))s_2 \\
+-\pi(a_2|s)s_0 & -pi(a_2|s)s_1 & -pi(a_2|s)s_2
+\end{array}
+\right]
 \end{align}
 $$
