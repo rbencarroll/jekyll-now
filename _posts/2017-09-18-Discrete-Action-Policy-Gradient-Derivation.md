@@ -4,7 +4,7 @@ completing the exercise.
 
 $$
 \begin{align}
-\pi(a|s) &= \softmax(\Theta s)_a \\
+\pi(a|s) &= softmax(\Theta s)_a \\
 &= \frac{\exp(\Theta_a^T s)}{\sum_{a}{\exp(\Theta_a s)}}
 \end{align}
 $$
@@ -14,7 +14,7 @@ the gradient matrix:
 
 $$
 \begin{align}
-\frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s) = \log\(\frac{\exp(\Theta_a
-s)}{\sum_{k}{\exp(\Theta_k s)}}\)
+\frac{\partial}{\partial \Theta_{ij}} \log \pi(a|s) = \log(\frac{\exp(\Theta_a
+s)}{\sum_{k}{\exp(\Theta_k s)}})
 \end{align}
 $$
