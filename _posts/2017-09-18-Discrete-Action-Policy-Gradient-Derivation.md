@@ -114,7 +114,7 @@ $$
 # Converting to Matrix Notation
 Now that we have the partial derivative solution, we can convert it to the more
 compact matrix notation. Let $$e_i$$ represent a one-hot column vector that is
-non-zero at index $$i$$, and $$\pi(\cdot|s) represent the column vector of the
+non-zero at index $$i$$, and $$\pi(\cdot|s)$$ represent the column vector of the
 probability of each action conditioned on the state.
 
 $$
