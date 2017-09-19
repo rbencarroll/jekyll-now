@@ -52,7 +52,7 @@ $$
 
 Continuing with the second term:
 
-Let $$f = \sum_{k}{\exp(\Theta_k s)}$$
+Let $$f = \sum_{k}{\exp(\Theta_k s)}$$ and $$g_k = \Theta_{k} s$$.
 
 $$
 \begin{align}
@@ -61,7 +61,9 @@ $$
 &= \frac{1}{f} \frac{\partial}{\Theta_{ij}} f \\
 &= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \frac{\partial}{\partial \Theta_{ij}} \sum_{k}{\exp(\Theta_{k} s)} \\
 &= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\frac{\partial}{\partial \Theta_{ij}} \exp(\Theta_{k} s)} \\
-\text{Let} g_k &= \Theta_k s \\
-&= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\frac{\partial}{\partial g} \exp(g) \frac{\partial}{\partial \Theta_{ij}} g} \\
+&= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\frac{\partial}{\partial g_k} \exp(g_k) \frac{\partial}{\partial \Theta_{ij}} g_k} \\
+&= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(g_k) \frac{\partial}{\partial \Theta_{ij}} g_k} \\
+&= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(g_k) \frac{\partial}{\partial \Theta_{ij}} g_k} \\
+&= \frac{1}{\sum_{k}{\exp(\Theta_k s)}} \sum_{k}{\exp(\Theta_{k} s) \frac{\partial}{\partial \Theta_{ij}} \Theta_{k} s} \\
 \end{align}
 $$
