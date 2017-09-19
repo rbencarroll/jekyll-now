@@ -40,6 +40,10 @@ $$
         0 & i \neq a
     \end{cases} \\
 &= \begin{cases}
+        \frac{\partial}{\partial \Theta_{ij}} \Theta_{ij} s_{j} + \left{0\right}_{j \neq n} & i = a \\
+        0 & i \neq a
+    \end{cases} \\
+&= \begin{cases}
         s_{j} & i = a \\
         0 & i \neq a
     \end{cases}
